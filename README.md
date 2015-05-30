@@ -10,4 +10,4 @@ deployed to [Coveralls](https://coveralls.io/r/bast/gtest-demo).
 
 - [Build and test history](https://travis-ci.org/bast/gtest-demo/builds)
 - [Code coverage](https://coveralls.io/r/bast/gtest-demo)
-- Licensed under [LGPLv3](../master/LICENSE)
+- Licensed under [BSD-3](../master/LICENSE)
