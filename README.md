@@ -13,3 +13,16 @@ deployed to [Coveralls](https://coveralls.io/r/bast/gtest-demo).
 - [Build and test history](https://travis-ci.org/bast/gtest-demo/builds)
 - [Code coverage](https://coveralls.io/r/bast/gtest-demo)
 - Licensed under [BSD-3](../master/LICENSE)
+
+
+## How to build this demo
+
+```
+git clone --recursive https://github.com/bast/gtest-demo.git
+cd gtest-demo
+mkdir build
+cd build
+cmake ..
+make -j
+make test
+```
