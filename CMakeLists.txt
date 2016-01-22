@@ -20,8 +20,8 @@ endif()
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
-    ${PROJECT_SOURCE_DIR}/external/googletest
-    ${PROJECT_SOURCE_DIR}/external/googletest/include
+    ${PROJECT_SOURCE_DIR}/external/googletest/googletest
+    ${PROJECT_SOURCE_DIR}/external/googletest/googletest/include
     )
 
 add_library(
@@ -31,12 +31,12 @@ add_library(
 
 add_library(
     gtest
-    ${PROJECT_SOURCE_DIR}/external/googletest/src/gtest-all.cc
-    ${PROJECT_SOURCE_DIR}/external/googletest/src/gtest_main.cc
+    ${PROJECT_SOURCE_DIR}/external/googletest/googletest/src/gtest-all.cc
+    ${PROJECT_SOURCE_DIR}/external/googletest/googletest/src/gtest_main.cc
     )
 
-set_source_files_properties(${PROJECT_SOURCE_DIR}/external/googletest/src/gtest-all.cc  PROPERTIES GENERATED 1)
-set_source_files_properties(${PROJECT_SOURCE_DIR}/external/googletest/src/gtest_main.cc PROPERTIES GENERATED 1)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/external/googletest/googletest/src/gtest-all.cc  PROPERTIES GENERATED 1)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/external/googletest/googletest/src/gtest_main.cc PROPERTIES GENERATED 1)
 
 add_executable(
     unit_tests
