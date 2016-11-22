@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 project(gtest-demo)
 
-enable_language(C CXX)
+enable_language(C)
+enable_language(CXX)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
     set(CMAKE_CXX_FLAGS         "-Wall -Wno-unknown-pragmas -Wno-sign-compare -Woverloaded-virtual -Wwrite-strings -Wno-unused")
