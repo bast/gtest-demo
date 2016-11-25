@@ -1,0 +1,7 @@
+ - cpplint: true
+   include: ["*.cc","*.cpp", "*.h", "*.hpp", "*.c"]
+   path: ./src/
+   filters:
+   - -whitespace
+   - +whitespace/braces
+   style: google # webkit | google
