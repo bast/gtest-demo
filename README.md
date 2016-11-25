@@ -16,14 +16,14 @@ deployed to [Coveralls](https://coveralls.io/r/bast/gtest-demo).
 
 ## How to build this demo
 
-```
+```sh
 git clone --recursive https://github.com/bast/gtest-demo.git
 cd gtest-demo
 mkdir build
 cd build
 cmake ..
 make -j
-make test
+./unit_tests
 ```
 
 
