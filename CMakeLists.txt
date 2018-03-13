@@ -36,4 +36,9 @@ target_link_libraries(
 
 enable_testing()
 
-add_test(unit ${PROJECT_BINARY_DIR}/unit_tests)
+add_test(
+  NAME
+    unit
+  COMMAND
+    ${PROJECT_BINARY_DIR}/unit_tests
+  )
