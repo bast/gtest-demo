@@ -34,7 +34,6 @@ target_link_libraries(
     example
     )
 
-include(CTest)
 enable_testing()
 
 add_test(unit ${PROJECT_BINARY_DIR}/unit_tests)
