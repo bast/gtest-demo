@@ -64,4 +64,5 @@ $ ./unit_tests
 
 ## Acknowledgments
 
-Container Travis setup thanks to [Joan Massich](https://github.com/massich).
+- Container Travis setup thanks to [Joan Massich](https://github.com/massich).
+- Clean-up in CMake code thanks to [Claus Klein](https://github.com/ClausKlein).
