@@ -2,6 +2,28 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(gtest-demo CXX)
 
+# the following code to fetch googletest
+# is inspired by and adapted after https://crascit.com/2015/07/25/cmake-gtest/
+# download and unpack googletest at configure time
+configure_file(googletest-download.cmake googletest-download/CMakeLists.txt)
+execute_process(
+    COMMAND
+        "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+    WORKING_DIRECTORY
+        ${CMAKE_BINARY_DIR}/googletest-download
+    )
+execute_process(
+    COMMAND
+        "${CMAKE_COMMAND}" --build .
+    WORKING_DIRECTORY
+        ${CMAKE_BINARY_DIR}/googletest-download
+    )
+# adds the targers: gtest, gtest_main, gmock, gmock_main
+add_subdirectory(
+    ${PROJECT_BINARY_DIR}/googletest-src
+    ${PROJECT_BINARY_DIR}/googletest-build
+    )
+
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
     set(CMAKE_CXX_FLAGS         "-Wextra -Wno-unknown-pragmas -Wno-sign-compare -Woverloaded-virtual -Wwrite-strings -Wno-unused")
     set(CMAKE_CXX_FLAGS_DEBUG   "-O0 -g3")
@@ -17,10 +39,6 @@ add_library(
     example
     src/example.cpp
     )
-
-set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
-
-add_subdirectory(${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT})
 
 add_executable(
     unit_tests

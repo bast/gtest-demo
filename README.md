@@ -13,11 +13,13 @@ deployed to [Coveralls](https://coveralls.io/r/bast/gtest-demo).
 - [Code coverage](https://coveralls.io/r/bast/gtest-demo)
 - Licensed under [BSD-3](../master/LICENSE)
 
+This demo uses the approach presented by Craig Scott in https://crascit.com/2015/07/25/cmake-gtest/.
+
 
 ## How to build this demo
 
 ```sh
-git clone --recursive https://github.com/bast/gtest-demo.git
+git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
 mkdir build
 cd build
