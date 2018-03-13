@@ -31,23 +31,5 @@ endif()
 
 add_subdirectory(src)
 
-add_executable(
-    unit_tests
-    test/example_add.cpp
-    test/example_subtract.cpp
-    )
-
-target_link_libraries(
-    unit_tests
-    gtest_main
-    example
-    )
-
 enable_testing()
-
-add_test(
-  NAME
-    unit
-  COMMAND
-    ${PROJECT_BINARY_DIR}/unit_tests
-  )
+add_subdirectory(test)
