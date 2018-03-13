@@ -18,7 +18,7 @@ This demo uses the approach presented by Craig Scott in https://crascit.com/2015
 
 ## How to build this demo
 
-```sh
+```bash
 git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
 cmake -H. -Bbuild
@@ -45,7 +45,7 @@ Total Test time (real) =   0.00 sec
 
 Or directly using `unit_tests`:
 ```
-$ ./unit_tests
+$ ./bin/unit_tests
 
 [==========] Running 2 tests from 1 test case.
 [----------] Global test environment set-up.

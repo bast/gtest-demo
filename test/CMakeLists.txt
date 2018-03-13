@@ -14,5 +14,5 @@ add_test(
   NAME
     unit
   COMMAND
-    ${PROJECT_BINARY_DIR}/unit_tests
+    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_tests
   )

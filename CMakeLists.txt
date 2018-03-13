@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(gtest-demo CXX)
 
+# place binaries and libraries according to GNU standards
+include(GNUInstallDirs)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+
 # the following code to fetch googletest
 # is inspired by and adapted after https://crascit.com/2015/07/25/cmake-gtest/
 # download and unpack googletest at configure time
