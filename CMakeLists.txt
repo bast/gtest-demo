@@ -16,7 +16,7 @@ endif()
 add_subdirectory(src)
 
 include(googletest.cmake)
-fetch_googletest()
+fetch_googletest(${PROJECT_SOURCE_DIR})
 
 enable_testing()
 add_subdirectory(test)
