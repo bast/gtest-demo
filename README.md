@@ -21,18 +21,17 @@ This demo uses the approach presented by Craig Scott in https://crascit.com/2015
 ```sh
 git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
-mkdir build
+cmake -H. -Bbuild
 cd build
-cmake ..
-make
+cmake --build .
 ```
 
 
 ## Running the tests
 
-Either using `make test`:
+Either using `ctest`:
 ```
-$ make test
+$ ctest
 
 Running tests...
 Test project /home/user/gtest-demo/build
