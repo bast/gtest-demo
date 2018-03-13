@@ -20,57 +20,19 @@ add_library(
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
 
-if (on)
-    add_subdirectory(${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT})
+add_subdirectory(${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT})
 
-    add_executable(
-        unit_tests
-        test/example_add.cpp
-        test/example_subtract.cpp
-        )
+add_executable(
+    unit_tests
+    test/example_add.cpp
+    test/example_subtract.cpp
+    )
 
 target_link_libraries(
     unit_tests
     gtest_main
     example
     )
-
-else()  #####################################################
-
-    include_directories(
-        ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}
-        ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/include
-        )
-
-    set(GOOGLETEST_SOURCES
-        ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/src/gtest-all.cc
-        ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/src/gtest_main.cc
-        )
-
-    #FIXME: make clean will rm generated files! CK
-    #   foreach(_source ${GOOGLETEST_SOURCES})
-    #       set_source_files_properties(${_source} PROPERTIES GENERATED 1)
-    #   endforeach()
-
-    add_library(googletest ${GOOGLETEST_SOURCES})
-
-    add_executable(
-        unit_tests
-        test/main.cpp
-        test/example_add.cpp
-        test/example_subtract.cpp
-        )
-
-    add_dependencies(unit_tests googletest)
-
-    target_link_libraries(
-        unit_tests
-        googletest
-        example
-        pthread
-        )
-
-endif()
 
 include(CTest)
 enable_testing()
