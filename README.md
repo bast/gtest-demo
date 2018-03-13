@@ -68,3 +68,8 @@ $ ./unit_tests
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).
 - Clean-up in CMake code thanks to [Claus Klein](https://github.com/ClausKlein).
+
+
+## References
+
+- https://crascit.com/2015/07/25/cmake-gtest/
