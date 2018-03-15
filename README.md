@@ -23,6 +23,9 @@ git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
 cmake -H. -Bbuild
 cd build
+cmake -DBUILD_GTEST=ON -Dgtest_build_tests=ON \
+    -DBUILD_GMOCK=OFF -DINSTALL_GMOCK=OFF -DINSTALL_GTEST=OFF\
+    -DCMAKE_BUILD_TYPE=Debug -L ..
 cmake --build .
 ```
 
@@ -63,6 +66,41 @@ $ ./bin/unit_tests
 ```
 
 
+## Install the Example cmake package to a local stage dir
+
+```bash
+$ DESTDIR=/tmp/gtest-demo cmake --build . --target install
+[0/1] Install the project...
+-- Install configuration: "Debug"
+-- Installing: /tmp/gtest-demo/usr/local/lib/libexampled.a
+-- Up-to-date: /tmp/gtest-demo/usr/local/include/example.h
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets-debug.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfig.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfigVersion.cmake
+
+```
+
+### You may wand to build and install the Release version too (or only)
+
+```bash
+cmake -DBUILD_GTEST=ON -Dgtest_build_tests=OFF \
+    -DBUILD_GMOCK=OFF -DINSTALL_GMOCK=OFF -DINSTALL_GTEST=OFF \
+    -DCMAKE_BUILD_TYPE=Release -L ..
+
+$ DESTDIR=/tmp/gtest-demo cmake --build . --target install
+[0/1] Install the project...
+-- Install configuration: "Release"
+-- Installing: /tmp/gtest-demo/usr/local/lib/libexample.a
+-- Up-to-date: /tmp/gtest-demo/usr/local/include/example.h
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets-release.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfig.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfigVersion.cmake
+
+```
+
+
 ## Acknowledgments
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).
@@ -72,3 +110,4 @@ $ ./bin/unit_tests
 ## References
 
 - https://crascit.com/2015/07/25/cmake-gtest/
+- https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html

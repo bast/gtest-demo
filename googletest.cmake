@@ -20,7 +20,7 @@ macro(fetch_googletest)
 
     # adds the targers: gtest, gtest_main, gmock, gmock_main
     add_subdirectory(
-        ${PROJECT_BINARY_DIR}/googletest-src
+        ${PROJECT_SOURCE_DIR}/googletest-src
         ${PROJECT_BINARY_DIR}/googletest-build
         )
 endmacro()
