@@ -4,6 +4,11 @@ add_executable(
     example_subtract.cpp
     )
 
+set_target_properties(
+    unit_tests PROPERTIES
+    DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX}
+    )
+
 target_link_libraries(
     unit_tests
     gtest_main

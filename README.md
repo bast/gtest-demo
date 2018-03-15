@@ -23,6 +23,7 @@ git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
 cmake -H. -Bbuild
 cd build
+cmake -Dgtest_build_tests=ON -DCMAKE_BUILD_TYPE=Debug -L ..
 cmake --build .
 ```
 
@@ -63,6 +64,75 @@ $ ./bin/unit_tests
 ```
 
 
+## Install the Example cmake package to a local stage dir
+
+```bash
+$ DESTDIR=/tmp/gtest-demo cmake --build . --target install
+[0/1] Install the project...
+-- Install configuration: "Debug"
+-- Installing: /tmp/gtest-demo/usr/local/lib/libexampled.a
+-- Up-to-date: /tmp/gtest-demo/usr/local/include/example.h
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets-debug.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfig.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfigVersion.cmake
+
+```
+
+### You may wand to build and install the Release version too (or only)
+
+```bash
+cmake -DBUILD_GTEST=ON -Dgtest_build_tests=OFF -DCMAKE_BUILD_TYPE=Release -L ..
+
+$ DESTDIR=/tmp/gtest-demo cmake --build . --target install
+[0/1] Install the project...
+-- Install configuration: "Release"
+-- Installing: /tmp/gtest-demo/usr/local/lib/libexample.a
+-- Up-to-date: /tmp/gtest-demo/usr/local/include/example.h
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets.cmake
+-- Installing: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleTargets-release.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfig.cmake
+-- Up-to-date: /tmp/gtest-demo/usr/local/lib/cmake/Example/ExampleConfigVersion.cmake
+
+```
+
+
+## Tipp: use newest cmake and install ccache if possible
+
+```bash
+$ time cmake --clean-first --build .
+-- use ccache
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/clausklein/Workspace/cpp/gtest-demo/build/googletest
+[1/6] Performing update step for 'googletest'
+Aktueller Branch master ist auf dem neuesten Stand.
+[2/6] No configure step for 'googletest'
+[3/6] No build step for 'googletest'
+[4/6] No install step for 'googletest'
+[5/6] No test step for 'googletest'
+[6/6] Completed 'googletest'
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/clausklein/Workspace/cpp/gtest-demo/build
+
+real	0m2,385s
+user	0m0,762s
+sys	    0m0,489s
+
+$ ninja clean
+[1/1] Cleaning all built files...
+Cleaning... 9 files.
+$ time ninja
+[9/9] Linking CXX executable bin/unit_tests
+
+real	0m0,600s
+user	0m0,194s
+sys	    0m0,403s
+
+```
+
+
 ## Acknowledgments
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).
@@ -72,3 +142,5 @@ $ ./bin/unit_tests
 ## References
 
 - https://crascit.com/2015/07/25/cmake-gtest/
+- https://cmake.org/cmake/help/latest/release/3.11.html
+- https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html
