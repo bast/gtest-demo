@@ -21,8 +21,9 @@ This demo uses the approach presented by Craig Scott in https://crascit.com/2015
 ```bash
 git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
-cmake -H. -Bbuild
+mkdir build
 cd build
+cmake ..
 cmake --build .
 ```
 

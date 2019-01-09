@@ -12,8 +12,9 @@ before_install:
   - pip install --user cpp-coveralls
 
 script:
-  - cmake -H. -Bbuild
+  - mkdir build
   - cd build
+  - cmake ..
   - cmake --build .
   - ctest
 
