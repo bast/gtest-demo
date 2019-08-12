@@ -13,6 +13,6 @@ steps:
 - script: mkdir build; cd build; cmake .. ; cmake --build .
   displayName: 'Build'
 
-- script: ctest
+- script: cd build; ctest
   displayName: 'Run testing'
 
