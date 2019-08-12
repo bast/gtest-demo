@@ -13,7 +13,7 @@ steps:
 - script: lscpu
   displayName: 'Redundant action. Show info about Azure machine.'
 
-- script: mkdir build; cd build; cmake .. ; cmake --build .
+- script: mkdir build; cd build; cmake .. ; cmake --build . rm -rf
   displayName: 'Build'
 
 - script: cd build; ctest
