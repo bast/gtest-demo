@@ -27,8 +27,15 @@ jobs:
         cd build
         ctest -C Debug --output-on-failure --verbose
 
-    - name: Code coverage
+        echo ">>> Run coverage analysis"
+        if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+           ctest -T coverage
+        fi
+
+
+    - name: Upload code coverage to coveralls
       if: contains(matrix.os, 'ubuntu')
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./build/coverage.info

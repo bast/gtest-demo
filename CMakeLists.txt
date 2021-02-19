@@ -4,6 +4,8 @@ project(gtest-demo LANGUAGES CXX)
 
 # set the C++ standard
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # place binaries and libraries according to GNU standards
 include(GNUInstallDirs)
