@@ -17,12 +17,10 @@ target_include_directories(example
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
   target_compile_options(example
     PUBLIC
-      "-fprofile-arcs"
-      "-ftest-coverage"
+      "--coverage"
     )
   target_link_options(example
     INTERFACE
-      "-fprofile-arcs"
-      "-ftest-coverage"
+      "--coverage"
     )
 endif()

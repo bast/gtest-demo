@@ -28,8 +28,7 @@ jobs:
         ctest -C Debug --output-on-failure --verbose
 
     - name: Code coverage
-      if: contains(matrix.os, 'linux')
+      if: contains(matrix.os, 'ubuntu')
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: build
