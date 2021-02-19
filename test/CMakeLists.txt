@@ -13,8 +13,8 @@ add_executable(
 
 target_link_libraries(unit_tests
   PRIVATE
-    gtest_main
     example
+    gtest_main
   )
 
 # automatic discovery of unit tests
