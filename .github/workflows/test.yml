@@ -40,7 +40,6 @@ jobs:
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: |
-        echo $PWD
         python -m venv foo
         source foo/bin/activate
         pip install --upgrade pip setuptools cpp-coveralls
