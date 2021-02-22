@@ -44,4 +44,4 @@ jobs:
         python -m venv foo
         source foo/bin/activate
         pip install --upgrade pip setuptools cpp-coveralls
-        coveralls --root . -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*" --exclude "./foo" --exclude "./_deps"
+        coveralls -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*" --exclude "foo" --exclude "build/_deps"
