@@ -32,6 +32,7 @@ jobs:
 
     - name: Setup python
       uses: actions/setup-python@v2
+      if: contains(matrix.os, 'ubuntu')
       with:
         python-version: 3.8
 
