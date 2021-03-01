@@ -41,7 +41,7 @@ jobs:
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
       run: |
-        python -m venv foo
-        source foo/bin/activate
+        python -m venv venv
+        source venv/bin/activate
         pip install --upgrade pip setuptools cpp-coveralls
-        coveralls -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*" --exclude "foo" --exclude "build/_deps"
+        coveralls -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*" --exclude "venv" --exclude "build/_deps"
