@@ -39,7 +39,7 @@ jobs:
     - name: Upload code coverage to coveralls
       if: contains(matrix.os, 'ubuntu')
       env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
       run: |
         python -m venv foo
         source foo/bin/activate
