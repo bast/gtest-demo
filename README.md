@@ -67,3 +67,4 @@ $ ./bin/unit_tests
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).
 - Clean-up in CMake code thanks to [Claus Klein](https://github.com/ClausKlein).
+- Clean-up and GitHub Actions workflow: [Roberto Di Remigio](https://github.com/robertodr).
