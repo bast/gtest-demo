@@ -1,19 +1,18 @@
-[![Build Status](https://travis-ci.org/bast/gtest-demo.svg?branch=master)](https://travis-ci.org/bast/gtest-demo/builds)
+[![Build Status](https://github.com/bast/gtest-demo/actions/workflows/test.yml/badge.svg)](https://github.com/bast/gtest-demo/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/bast/gtest-demo/badge.png?branch=master)](https://coveralls.io/r/bast/gtest-demo?branch=master)
 [![License](https://img.shields.io/badge/license-%20BSD--3-blue.svg)](../master/LICENSE)
 
 
 # gtest-demo
 
-C/C++ unit test demo using [Google Test](https://code.google.com/p/googletest) deployed to
-[Travis-CI](https://travis-ci.org/bast/gtest-demo/builds) with test coverage
-deployed to [Coveralls](https://coveralls.io/r/bast/gtest-demo).
+C/C++ unit test demo using [Google Test](https://code.google.com/p/googletest)
+with continuous integration provided by [GitHub
+Actions](https://docs.github.com/en/actions) and test coverage deployed to
+[Coveralls](https://coveralls.io/r/bast/gtest-demo).
 
-- [Build and test history](https://travis-ci.org/bast/gtest-demo/builds)
+- [Build and test history](https://github.com/bast/gtest-demo/actions)
 - [Code coverage](https://coveralls.io/r/bast/gtest-demo)
 - Licensed under [BSD-3](../master/LICENSE)
-
-This demo uses the approach presented by Craig Scott in https://crascit.com/2015/07/25/cmake-gtest/.
 
 
 ## How to build this demo
@@ -21,10 +20,8 @@ This demo uses the approach presented by Craig Scott in https://crascit.com/2015
 ```bash
 git clone https://github.com/bast/gtest-demo.git
 cd gtest-demo
-mkdir build
-cd build
-cmake ..
-cmake --build .
+cmake -S. -Bbuild 
+cmake --build build
 ```
 
 
@@ -32,6 +29,7 @@ cmake --build .
 
 Either using `ctest`:
 ```
+$ cd build
 $ ctest
 
 Running tests...
@@ -46,6 +44,7 @@ Total Test time (real) =   0.00 sec
 
 Or directly using `unit_tests`:
 ```
+$ cd build 
 $ ./bin/unit_tests
 
 [==========] Running 2 tests from 1 test case.
@@ -68,8 +67,3 @@ $ ./bin/unit_tests
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).
 - Clean-up in CMake code thanks to [Claus Klein](https://github.com/ClausKlein).
-
-
-## References
-
-- https://crascit.com/2015/07/25/cmake-gtest/
